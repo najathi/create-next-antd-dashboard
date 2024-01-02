@@ -6,7 +6,7 @@ import { Layout, theme } from 'antd';
 import HeaderCmp from '@/components/layout/header';
 import SideBar from '@/components/layout/sideBar';
 import FooterCmp from '@/components/layout/footer';
-import DynamicBreadcrumb from '@/components/DynamicBreadcrumb';
+import DynamicBreadcrumb from '@/components/dynamicBreadcrumb';
 
 type DashboardLayoutProps = {
   children: React.ReactNode
