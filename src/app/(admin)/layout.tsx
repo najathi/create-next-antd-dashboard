@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { Layout, theme } from 'antd';
 
 import HeaderCmp from '@/components/layout/header';
