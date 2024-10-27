@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Layout, theme } from 'antd';
 
 import HeaderCmp from '@/components/layout/header';
@@ -8,22 +9,27 @@ import FooterCmp from '@/components/layout/footer';
 import DynamicBreadcrumb from '@/components/dynamicBreadcrumb';
 
 type DashboardLayoutProps = {
-  children: React.ReactNode
+  children: React.ReactNode;
 };
 
-const { Content } = Layout;
+const { Content, Sider, Header, Footer } = Layout;
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+  const [collapsed, setCollapsed] = useState(true);
+  const { token: { colorBgContainer, borderRadiusLG } } = theme.useToken();
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <SideBar />
+      <Sider width={collapsed ? 80 : 200}>
+        <SideBar
+          collapsed={collapsed}
+          setCollapsed={setCollapsed}
+        />
+      </Sider>
+      
       <Layout>
         <HeaderCmp />
-        <Content className='px-4'>
+        <Content className="px-4" style={{ padding: '16px' }}>
           <DynamicBreadcrumb />
           <div
             style={{
